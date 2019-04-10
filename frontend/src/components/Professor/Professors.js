@@ -18,12 +18,8 @@ export default class Professors extends Component{
 
     render() {
         return (
-            <div className="container-fluid" style={{marginLeft: '-15px'}}>
-                <div className="d-flex flex-row">
-                    <div className="col-sm-12">
-                        <ProfessorList professors={this.state.professors} />
-                    </div>
-                </div>
+            <div>
+                <ProfessorList professors={this.state.professors} />
             </div>
         );
     }

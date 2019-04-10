@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withStyles } from "@material-ui/core/styles";
 import classnames from 'classnames';
+import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -15,9 +16,9 @@ import PropTypes from 'prop-types';
 const styles = muiBaseTheme => ({
   card: {
     maxWidth: 350,
-    margin: "auto",
-    marginTop: "20px",
-    marginBottom: "50px",
+    margin: "20px",
+    //marginTop: "20px",
+    //marginBottom: "50px",
     transition: "0.3s",
     boxShadow: "0 8px 40px -12px rgba(0,0,0,0.3)",
     "&:hover": {
@@ -58,13 +59,18 @@ const styles = muiBaseTheme => ({
   },
   rateText : {
       fontSize: '.8125rem'
+  },
+  professorCard: {
+    display: "inline-block"
   }
 });
 
 
 class ProfessorCard extends Component {
 
-    state = { expanded: false };
+    state = { 
+        expanded: false
+     };
 
     handleExpandClick = () => {
         this.setState({ expanded: !this.state.expanded });
@@ -72,16 +78,16 @@ class ProfessorCard extends Component {
    
     render() {
         const { classes } = this.props;
+
         console.log(this.props);
 
         return (
-            <div className="professorCard">
+            <div className={classes.professorCard}>
                 <Card className={classes.card}>
                     <CardMedia
                         className={classes.media}
                         image={this.props.professor.imageUrl}
                     />
-                    {/* <ReactStars className={classes.stars} count={5} size={20} color2={'#ffd700'}/> */}
                     <CardContent className={classes.content}>
                         <Typography
                         className={"MuiTypography--heading"}
