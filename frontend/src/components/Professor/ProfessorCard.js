@@ -75,9 +75,14 @@ class ProfessorCard extends Component {
     handleExpandClick = () => {
         this.setState({ expanded: !this.state.expanded });
     }
+
+    handleStarClick = () => {
+
+    }
    
     render() {
         const { classes } = this.props;
+        const { rating } = this.props;
 
         console.log(this.props);
 
