@@ -22,7 +22,7 @@ contract TeacherRate {
 
 	function _createTeacher (bytes32 _name) public {
 		uint8 id = _generateID();
-		teachers.push(teacher(id, _name, null, null));
+		teachers.push(teacher(id, _name, null, null) -1);
 	}
 
 	function _generateID () returns(uint8) internal {
@@ -37,8 +37,8 @@ contract TeacherRate {
 			throw;
 		}
 		else {
-			teachers[_teacherID].teacherRatings.push(_rating);
-			teachers[_teacherID].teacherReviews.push(_review);
+			teachers[_teacherID].teacherRatings.push(_rating) -1;
+			teachers[_teacherID].teacherReviews.push(_review) -1;
 		}
 	}
 	
