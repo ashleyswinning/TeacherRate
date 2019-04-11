@@ -103,18 +103,21 @@ class ProfessorCard extends Component {
                         {this.props.professor.course}
                         </Typography>
                         <Divider className={classes.divider} light />
-                        <CardActions className={classnames(classes.buttonDiv, classes.actions)} disableActionSpacing>
-                            <Button size="small" color="primary" href="#">
+                        <CardActions className={classnames(classes.buttonDiv, classes.actions)}>
+                            <Button variant="contained" size="small" color="primary" style={{backgroundColor: "#db4c40", fontFamily: "Titillium Web"}} href="#">
                                 View Professor
                             </Button>
                             <Button
+                                variant="contained"
+                                size="small"
                                 className={classnames(classes.expand, classes.rateText)}
                                 onClick={this.handleExpandClick}
                                 aria-expanded={this.state.expanded}
                                 aria-label="Show more"
                                 color="primary"
+                                style={{backgroundColor: "#db4c40", fontFamily: "Titillium Web"}}
                                 >
-                                Rate Your Professor
+                                Rate Professor
                             </Button>
                         </CardActions>
                     </CardContent>
