@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 
 export default class Ratings extends Component {
 
+    // initialized state to hold values of each field to be rated and referenced in the event of updating a professor's rate
     constructor(props) {
         super(props);
         this.state ={
@@ -20,6 +21,7 @@ export default class Ratings extends Component {
             organized: 0
         };
 
+        // declaring bindings 
         this.engagingChanged = this.engagingChanged.bind(this);
         this.helpfulChanged = this.helpfulChanged.bind(this);
         this.creativeChanged = this.creativeChanged.bind(this);
@@ -27,45 +29,53 @@ export default class Ratings extends Component {
         this.organizedChanged = this.organizedChanged.bind(this);
     }
 
+    // records value submitted for Engaging section
     engagingChanged = (event) => {
         this.setState({engaging: event});
         console.log(event);
     };
 
+    // records value submitted for Helpful section
     helpfulChanged = (event) => {
         this.setState({helpful: event});
         console.log(event);
     };
 
+    // records value submitted for Creative section
     creativeChanged = (event) => {
         this.setState({creative: event});
         console.log(event);
     };
 
+    // records value submitted for Knowledgeable section
     knowledgeableChanged = (event) => {
         this.setState({knowledgeable: event});
         console.log(event);
     };
 
+    // records value submitted for Organized section
     organizedChanged = (event) => {
         this.setState({organized: event});
         console.log(event);
     };
 
+    // function takes average on the ratings and updates rating when submitted
     handleSubmit = () => {
 
         let average = this.handleAverage(this.props.professor.rating);
-        let finalAverage = (average + this.props.professor.rating) / 2;
+        let finalAverage = (average + this.props.professor.rating) / (this.props.professor.votes + 1);
         this.props.updateRating(this.props.professor.id, finalAverage);
 
         this.props.onClose();
     };
 
+    // helper function that takes average for all state attributes before being averaged with possible previous rating
     handleAverage = (rating) => {
         const { engaging, helpful, creative, knowledgeable, organized } = this.state;
         return ( (engaging + helpful + creative + knowledgeable + organized) / 5 );
     };
 
+    // function that defaults the ratings back to 0 in the event that a rating has not been submitted
     handleCancel = () => {
         this.setState({
             engaging: 0,
@@ -78,11 +88,19 @@ export default class Ratings extends Component {
         this.props.onClose();
     };
 
+    // function used to parse last name of professor for presentation purposes
+   retrieveLastName = () => {
+        let fullName = this.props.professor.name;
+        let parsed = fullName.split(' ');
+        return parsed[1];
+    }
+
     render() {
 
+        // records value submitted for Creative section
         console.log(this.state);
         console.log(this.props);
-        console.log(this.props.professor);
+        console.log(this.retrieveLastName());
 
         const centerText = {
             fontFamily: "Titillium Web",
@@ -99,7 +117,7 @@ export default class Ratings extends Component {
         return (
             <div>
                 <Dialog open={this.props.open} fullWidth={true} maxWidth="xs">
-                    <DialogTitle style={{textAlign: 'center', fontFamily: 'Alegreya Sans SC'}}>Rate Your Professor!</DialogTitle>
+                    <DialogTitle style={{textAlign: 'center', fontFamily: 'Alegreya Sans SC'}}>Rate Professor {this.retrieveLastName()}!</DialogTitle>
                     <DialogContent style={{margin: 'auto'}}>
                         <DialogContentText style={centerText}>Engaging</DialogContentText>
                         <ReactStars edit={true} count={5} size={22} color2={'#ffd700'} value={this.state.engaging} onChange={this.engagingChanged}/>

@@ -4,12 +4,6 @@ import Professors from './components/Professor/Professors.js';
 import './App.css';
 
 class App extends Component {
-  constructor(props){
-    super(props)
-    this.state={
-      teachers : []
-    }
-  }
 
   render() {
     return (

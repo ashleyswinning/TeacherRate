@@ -3,6 +3,7 @@ import AppBar from '@material-ui/core/AppBar';
 import ToolBar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
+// setup navbar
 class NavBar extends Component{
     render(){
         return(

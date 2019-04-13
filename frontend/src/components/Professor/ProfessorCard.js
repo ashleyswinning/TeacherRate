@@ -12,6 +12,7 @@ import ReactStars from 'react-stars';
 import Ratings from '../Ratings';
 import PropTypes from 'prop-types';
 
+// declared styles to be used when ProfessorCard renders
 const styles = muiBaseTheme => ({
   card: {
     width: 300,
@@ -65,18 +66,22 @@ const styles = muiBaseTheme => ({
 
 class ProfessorCard extends Component {
 
+    // initial state of Rating dialog set to false to remain hidden upon the initial render
     state = { 
         display: false
      };
 
-    displayRating = () => {
-        this.setState({ display: true});
-    };
+    //  // display set to true to enable view of the Rating dialog
+    // displayRating = () => {
+    //     this.setState({ display: true});
+    // };
 
-    hideDisplayRating = () => {
-        this.setState({display: false});
-    };
+    // // display set to false to disable view of the Rating dialog
+    // hideDisplayRating = () => {
+    //     this.setState({display: false});
+    // };
 
+    // Rating dialog view either set to enabled or disabled depending on its current boolean value
     toggleDisplay = () => {
         this.setState({display: !this.state.display});
     };
@@ -84,6 +89,7 @@ class ProfessorCard extends Component {
     render() {
         const { classes } = this.props;
 
+        // allows visibility when debugging capturing information regarding props
         console.log(this.props);
 
         return (
