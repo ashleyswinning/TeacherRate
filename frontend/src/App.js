@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import NavBar from './components/NavBar.js';
-import Professors from './components/Professor/Professors';
+import Professors from './components/Professor/Professors.js';
 import './App.css';
-import { contract } from "./setup.js"
 
 class App extends Component {
   constructor(props){

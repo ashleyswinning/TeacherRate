@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { withStyles } from "@material-ui/core/styles";
 import classnames from 'classnames';
-import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from "@material-ui/core/CardContent";
-import Collapse from '@material-ui/core/Collapse';
 import Divider from "@material-ui/core/Divider";
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -15,10 +13,8 @@ import PropTypes from 'prop-types';
 
 const styles = muiBaseTheme => ({
   card: {
-    maxWidth: 350,
+    width: 300,
     margin: "20px",
-    //marginTop: "20px",
-    //marginBottom: "50px",
     transition: "0.3s",
     boxShadow: "0 8px 40px -12px rgba(0,0,0,0.3)",
     "&:hover": {
@@ -47,12 +43,12 @@ const styles = muiBaseTheme => ({
       height: 20
   },
   stars: {
-      position: 'absolute',
-      left: '35%'
+      left: '32%',
+      marginTop: '30px'
   },
   expand: {
     transform: 'rotate(0deg)',
-    marginLeft: 'auto',
+    margin: 'auto',
     transition: muiBaseTheme.transitions.create('transform', {
       duration: muiBaseTheme.transitions.duration.shortest,
     }),
@@ -82,7 +78,6 @@ class ProfessorCard extends Component {
    
     render() {
         const { classes } = this.props;
-        const { rating } = this.props;
 
         console.log(this.props);
 
@@ -109,9 +104,6 @@ class ProfessorCard extends Component {
                         </Typography>
                         <Divider className={classes.divider} light />
                         <CardActions className={classnames(classes.buttonDiv, classes.actions)}>
-                            <Button variant="contained" size="small" color="primary" style={{backgroundColor: "#db4c40", fontFamily: "Titillium Web"}} href="#">
-                                View Professor
-                            </Button>
                             <Button
                                 variant="contained"
                                 size="small"
@@ -125,12 +117,8 @@ class ProfessorCard extends Component {
                                 Rate Professor
                             </Button>
                         </CardActions>
+                        <ReactStars value={this.props.professor.rating} edit={false} className={classes.stars} count={5} size={20} color2={'#ffd700'}/>
                     </CardContent>
-                    <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
-                            <CardContent>
-                                <ReactStars className={classes.stars} count={5} size={20} color2={'#ffd700'}/> 
-                            </CardContent>
-                    </Collapse>
                 </Card>
             </div>
         );
