@@ -1,22 +1,23 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ProfessorCard from './ProfessorCard';
 
-const getProfessors = (professors) => {
-    return (
-        <div className="card-deck">
-            {
-                professors.map(professor => <ProfessorCard key={professor.id} professor={professor} />)
-            }
-        </div>
-    );
-};
+class ProfessorList extends Component {
 
-const ProfessorList = (props) => (
-    <div>
-        {getProfessors(props.professors)}
-    </div>
-);
+    render() {
+        console.log(this.props);
+
+        let professorList = this.props.professors.map((professor) => 
+            <ProfessorCard key={professor.id} professor={professor} updateRating={this.props.updateRating}/>
+        );
+
+        return (
+            <div>
+                {professorList}
+            </div>
+        );
+    }
+}
 
 ProfessorList.defaultProps = {
     professors: []

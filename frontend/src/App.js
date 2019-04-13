@@ -12,7 +12,6 @@ class App extends Component {
   }
 
   render() {
-    //console.log(this.state.teachers);
     return (
       <div className="App">
         <NavBar/>

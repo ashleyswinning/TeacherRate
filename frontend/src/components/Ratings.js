@@ -10,9 +10,79 @@ import PropTypes from 'prop-types';
 
 export default class Ratings extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state ={
+            engaging: 0,
+            helpful: 0,
+            creative: 0,
+            knowledgeable: 0,
+            organized: 0
+        };
 
+        this.engagingChanged = this.engagingChanged.bind(this);
+        this.helpfulChanged = this.helpfulChanged.bind(this);
+        this.creativeChanged = this.creativeChanged.bind(this);
+        this.knowledgeableChanged = this.knowledgeableChanged.bind(this);
+        this.organizedChanged = this.organizedChanged.bind(this);
+    }
+
+    engagingChanged = (event) => {
+        this.setState({engaging: event});
+        console.log(event);
+    };
+
+    helpfulChanged = (event) => {
+        this.setState({helpful: event});
+        console.log(event);
+    };
+
+    creativeChanged = (event) => {
+        this.setState({creative: event});
+        console.log(event);
+    };
+
+    knowledgeableChanged = (event) => {
+        this.setState({knowledgeable: event});
+        console.log(event);
+    };
+
+    organizedChanged = (event) => {
+        this.setState({organized: event});
+        console.log(event);
+    };
+
+    handleSubmit = () => {
+
+        let average = this.handleAverage(this.props.professor.rating);
+        let finalAverage = (average + this.props.professor.rating) / 2;
+        this.props.updateRating(this.props.professor.id, finalAverage);
+
+        this.props.onClose();
+    };
+
+    handleAverage = (rating) => {
+        const { engaging, helpful, creative, knowledgeable, organized } = this.state;
+        return ( (engaging + helpful + creative + knowledgeable + organized) / 5 );
+    };
+
+    handleCancel = () => {
+        this.setState({
+            engaging: 0,
+            helpful: 0,
+            creative: 0,
+            knowledgeable: 0,
+            organized: 0
+        });
+
+        this.props.onClose();
+    };
 
     render() {
+
+        console.log(this.state);
+        console.log(this.props);
+        console.log(this.props.professor);
 
         const centerText = {
             fontFamily: "Titillium Web",
@@ -32,27 +102,27 @@ export default class Ratings extends Component {
                     <DialogTitle style={{textAlign: 'center', fontFamily: 'Alegreya Sans SC'}}>Rate Your Professor!</DialogTitle>
                     <DialogContent style={{margin: 'auto'}}>
                         <DialogContentText style={centerText}>Engaging</DialogContentText>
-                        <ReactStars edit={true} count={5} size={22} color2={'#ffd700'}/>
+                        <ReactStars edit={true} count={5} size={22} color2={'#ffd700'} value={this.state.engaging} onChange={this.engagingChanged}/>
 
                         <DialogContentText style={centerText}>Helpful</DialogContentText>
-                        <ReactStars edit={true} count={5} size={22} color2={'#ffd700'}/>
+                        <ReactStars edit={true} count={5} size={22} color2={'#ffd700'} value={this.state.helpful} onChange={this.helpfulChanged}/>
 
                         <DialogContentText style={centerText}>Creative</DialogContentText>
-                        <ReactStars edit={true} count={5} size={22} color2={'#ffd700'}/>
+                        <ReactStars edit={true} count={5} size={22} color2={'#ffd700'} value={this.state.creative} onChange={this.creativeChanged}/>
 
                         <DialogContentText style={centerText}>Knowledgeable</DialogContentText>
-                        <ReactStars edit={true} count={5} size={22} color2={'#ffd700'}/>
+                        <ReactStars edit={true} count={5} size={22} color2={'#ffd700'} value={this.state.knowledgeable} onChange={this.knowledgeableChanged}/>
 
                         <DialogContentText style={centerText}>Organized</DialogContentText>
-                        <ReactStars edit={true} count={5} size={22} color2={'#ffd700'}/>
+                        <ReactStars edit={true} count={5} size={22} color2={'#ffd700'} value={this.state.organized} onChange={this.organizedChanged}/>
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={this.props.onClose} variant="contained"
+                        <Button onClick={this.handleCancel} variant="contained"
                                 size="small" color="primary"
                                 style={{backgroundColor: "#db4c40", fontFamily: "Titillium Web"}}>
                         Cancel
                         </Button>
-                        <Button onClick={this.props.onClose} variant="contained"
+                        <Button onClick={this.handleSubmit} variant="contained"
                                 size="small" color="primary"
                                 style={{backgroundColor: "#db4c40", fontFamily: "Titillium Web"}}>
                         Submit
@@ -65,7 +135,7 @@ export default class Ratings extends Component {
 }
 
 Ratings.propTypes = {
-    professor: PropTypes.number.isRequired,
+    professor: PropTypes.object.isRequired,
     onClose: PropTypes.func.isRequired,
     open: PropTypes.bool
 };

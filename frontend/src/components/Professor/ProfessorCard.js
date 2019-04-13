@@ -121,7 +121,7 @@ class ProfessorCard extends Component {
                                 >
                                 Rate Professor
                             </Button>
-                            <Ratings open={this.state.display} onClose={this.toggleDisplay} professor={this.props.professor.rating}/>
+                            <Ratings open={this.state.display} onClose={this.toggleDisplay} professor={this.props.professor} updateRating={this.props.updateRating}/>
                         </CardActions>
                         <ReactStars value={this.props.professor.rating} edit={false} className={classes.stars} count={5} size={20} color2={'#ffd700'}/>
                     </CardContent>
