@@ -46,7 +46,7 @@ contract TeacherRate {
 	}
 
 	//', string memory _review' removed param
-	function _submitReview (uint8 _teacherID, uint256 _rating) public {
+	function _submitRating (uint8 _teacherID, uint256 _rating) public {
 		if (_rating < 1 || _rating > 5){ //rating must be between 1 and 5
 			revert();
 		}
@@ -86,4 +86,10 @@ contract TeacherRate {
 		}
 		return _Ids;
 	}
+
+	//returns first, last of teacher with given id
+	function _getTeacherName (uint256 _id) view public returns(bytes32, bytes32) {
+		return (teachers[_id].f_name, teachers[_id].l_name);
+	}
+	
 }

@@ -37,7 +37,7 @@
           "type": "uint256"
         }
       ],
-      "name": "_submitReview",
+      "name": "_submitRating",
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
@@ -75,23 +75,46 @@
       "payable": false,
       "stateMutability": "view",
       "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_id",
+          "type": "uint256"
+        }
+      ],
+      "name": "_getTeacherName",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32"
+        },
+        {
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.0+commit.1d4f565a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"name\":\"_teacherID\",\"type\":\"uint8\"},{\"name\":\"_rating\",\"type\":\"uint256\"}],\"name\":\"_submitReview\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"_teacherID\",\"type\":\"uint8\"}],\"name\":\"_getTeacherRatings\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"_getTeacherIds\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256[]\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_fname\",\"type\":\"bytes32\"},{\"name\":\"_lname\",\"type\":\"bytes32\"}],\"name\":\"_createTeacher\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Users/atyler/teacherrate/backend/contracts/TeacherRate.sol\":\"TeacherRate\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/atyler/teacherrate/backend/contracts/TeacherRate.sol\":{\"keccak256\":\"0xb431082cfe2bd9e976a3b284aeb346fdb0028f3931d739daa3ff250172f0bd70\",\"urls\":[\"bzzr://2cf47cedbadf13769a13e253ffb803a6914c090d4a4d3524328a5ba632d75948\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b506104bc806100206000396000f3fe608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806356c95c1f146100675780636d53a79e146100af5780638afc41c114610101578063de8760d51461016d575b600080fd5b34801561007357600080fd5b506100ad6004803603604081101561008a57600080fd5b81019080803560ff169060200190929190803590602001909291905050506101b2565b005b3480156100bb57600080fd5b506100eb600480360360208110156100d257600080fd5b81019080803560ff16906020019092919050505061021f565b6040518082815260200191505060405180910390f35b34801561010d57600080fd5b506101166102c3565b6040518080602001828103825283818151815260200191508051906020019060200280838360005b8381101561015957808201518184015260208101905061013e565b505050509050019250505060405180910390f35b34801561017957600080fd5b506101b06004803603604081101561019057600080fd5b810190808035906020019092919080359060200190929190505050610328565b005b60018110806101c15750600581115b156101cb57600080fd5b600160008360ff168154811015156101df57fe5b9060005260206000209060040201600301829080600181540180825580915050906001820390600052602060002001600090919290919091505550505050565b600080600090506000808460ff1681548110151561023957fe5b906000526020600020906004020160030180549050905060008090505b818110156102aa5760008560ff1681548110151561027057fe5b90600052602060002090600402016003018181548110151561028e57fe5b9060005260206000200154830192508080600101915050610256565b5080828115156102b657fe5b0491508192505050919050565b60608060005b600080549050811015610320576000818154811015156102e557fe5b906000526020600020906004020160000154828281518110151561030557fe5b906020019060200201818152505080806001019150506102c9565b508091505090565b60006103326103f9565b90506001600060806040519081016040528084815260200186815260200185815260200160006040519080825280602002602001820160405280156103865781602001602082028038833980820191505090505b508152509080600181540180825580915050906001820390600052602060002090600402016000909192909190915060008201518160000155602082015181600101556040820151816002015560608201518160030190805190602001906103ef92919061041e565b5050505050505050565b600060016000805490501015610412576000905061041b565b60008054905090505b90565b82805482825590600052602060002090810192821561045a579160200282015b8281111561045957825182559160200191906001019061043e565b5b509050610467919061046b565b5090565b61048d91905b80821115610489576000816000905550600101610471565b5090565b9056fea165627a7a72305820d1c0295c9839793a05fb67a595fa9daf101315125292d4aba755937aab5fdf0e0029",
-  "deployedBytecode": "0x608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806356c95c1f146100675780636d53a79e146100af5780638afc41c114610101578063de8760d51461016d575b600080fd5b34801561007357600080fd5b506100ad6004803603604081101561008a57600080fd5b81019080803560ff169060200190929190803590602001909291905050506101b2565b005b3480156100bb57600080fd5b506100eb600480360360208110156100d257600080fd5b81019080803560ff16906020019092919050505061021f565b6040518082815260200191505060405180910390f35b34801561010d57600080fd5b506101166102c3565b6040518080602001828103825283818151815260200191508051906020019060200280838360005b8381101561015957808201518184015260208101905061013e565b505050509050019250505060405180910390f35b34801561017957600080fd5b506101b06004803603604081101561019057600080fd5b810190808035906020019092919080359060200190929190505050610328565b005b60018110806101c15750600581115b156101cb57600080fd5b600160008360ff168154811015156101df57fe5b9060005260206000209060040201600301829080600181540180825580915050906001820390600052602060002001600090919290919091505550505050565b600080600090506000808460ff1681548110151561023957fe5b906000526020600020906004020160030180549050905060008090505b818110156102aa5760008560ff1681548110151561027057fe5b90600052602060002090600402016003018181548110151561028e57fe5b9060005260206000200154830192508080600101915050610256565b5080828115156102b657fe5b0491508192505050919050565b60608060005b600080549050811015610320576000818154811015156102e557fe5b906000526020600020906004020160000154828281518110151561030557fe5b906020019060200201818152505080806001019150506102c9565b508091505090565b60006103326103f9565b90506001600060806040519081016040528084815260200186815260200185815260200160006040519080825280602002602001820160405280156103865781602001602082028038833980820191505090505b508152509080600181540180825580915050906001820390600052602060002090600402016000909192909190915060008201518160000155602082015181600101556040820151816002015560608201518160030190805190602001906103ef92919061041e565b5050505050505050565b600060016000805490501015610412576000905061041b565b60008054905090505b90565b82805482825590600052602060002090810192821561045a579160200282015b8281111561045957825182559160200191906001019061043e565b5b509050610467919061046b565b5090565b61048d91905b80821115610489576000816000905550600101610471565b5090565b9056fea165627a7a72305820d1c0295c9839793a05fb67a595fa9daf101315125292d4aba755937aab5fdf0e0029",
-  "sourceMap": "27:2342:1:-;;;477:59;8:9:-1;5:2;;;30:1;27;20:12;5:2;477:59:1;27:2342;;;;;;",
-  "deployedSourceMap": "27:2342:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1172:293;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1172:293:1;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1172:293:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1540:285;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1540:285:1;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1540:285:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2178:188;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2178:188:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;2178:188:1;;;;;;;;;;;;;;;;;673:269;;8:9:-1;5:2;;;30:1;27;20:12;5:2;673:269:1;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;673:269:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1172:293;1257:1;1247:7;:11;:26;;;;1272:1;1262:7;:11;1247:26;1243:218;;;1313:8;;;1243:218;1393:1;1342:8;1351:10;1342:20;;;;;;;;;;;;;;;;;;;;;;:35;;1383:7;1342:49;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;1342:49:1;;;;;;;;;;;;;;;;;;;;;:52;;1172:293;;:::o;1540:285::-;1607:7;1621:11;1635:1;1621:15;;1641:11;1655:8;1664:10;1655:20;;;;;;;;;;;;;;;;;;;;;;:35;;:42;;;;1641:56;;1706:6;1714:1;1706:9;;1702:83;1719:3;1717:1;:5;1702:83;;;1741:8;1750:10;1741:20;;;;;;;;;;;;;;;;;;;;;;:35;;1777:1;1741:38;;;;;;;;;;;;;;;;;;1734:45;;;;1724:3;;;;;;;1702:83;;;;1801:3;1795;:9;;;;;;;;1789:15;;1816:3;1809:10;;;;1540:285;;;:::o;2178:188::-;2225:16;2247:21;2277:6;2273:73;2289:8;:15;;;;2285:1;:19;2273:73;;;2326:8;2335:1;2326:11;;;;;;;;;;;;;;;;;;;;:14;;;2316:4;2321:1;2316:7;;;;;;;;;;;;;;;;;:24;;;;;2306:3;;;;;;;2273:73;;;;2357:4;2350:11;;;2178:188;:::o;673:269::-;742:11;756:13;:11;:13::i;:::-;742:27;;936:1;774:8;788:145;;;;;;;;;806:3;788:145;;;;823:6;788:145;;;;843:6;788:145;;;;885:1;871:16;;;;;;;;;;;;;;;;;;;;;;29:2:-1;21:6;17:15;117:4;105:10;97:6;88:34;148:4;140:6;136:17;126:27;;0:157;871:16:1;;;;788:145;;;774:160;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;774:160:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;:163;;673:269;;;:::o;984:139::-;1030:7;1065:1;1047:8;:15;;;;:19;1044:74;;;1080:1;1073:8;;;;1044:74;1103:8;:15;;;;1096:22;;984:139;;:::o;27:2342::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
-  "source": "pragma solidity ^0.5.0;\r\n\r\ncontract TeacherRate {\r\n\r\n\t// mapping (bytes32 => uint8) public teacherRatings;\r\n\r\n\t// bytes32[] teachers;\r\n\r\n\t//teachers have unique ID, generated upon creation\r\n\t//A name, provided upon creation\r\n\t//and an array of ratings to be averaged\r\n\tstruct teacher {\r\n\t\tuint256 id;\r\n\t\tbytes32 f_name;\r\n\t\tbytes32 l_name;\r\n\t\tuint256[] teacherRatings;\r\n\t\t// string[] teacherReviews;\r\n\t}\r\n\r\n\tteacher[] teachers; //array of all teachers\r\n\r\n\t//This does nothing\r\n\tconstructor() public {\r\n\t\t// teachers = teacherEntries;\r\n\t}\r\n\r\n\t//pushes a new instance of teacher struct to array of all teachers\r\n\t//ID is autogenerated and ratings are an empty dynamic array\r\n\tfunction _createTeacher (bytes32 _fname, bytes32 _lname) public {\r\n\t\tuint256 _id = _generateID();\r\n\t\tteachers.push(teacher({\r\n\t\t\tid: _id,\r\n\t\t\tf_name: _fname,\r\n\t\t\tl_name: _lname,\r\n\t\t\tteacherRatings: new uint256[](0)\r\n\t\t\t// teacherReviews: new string[](0)\r\n\t\t\t})) -1;\r\n\t}\r\n\r\n\t//Generates a new id sequentially \r\n\tfunction _generateID () view internal returns(uint256) {\r\n\t\tif(teachers.length < 1){\r\n\t\t\treturn 0;\r\n\t\t}\r\n\t\telse return teachers.length;\r\n\t}\r\n\r\n\t//', string memory _review' removed param\r\n\tfunction _submitReview (uint8 _teacherID, uint256 _rating) public {\r\n\t\tif (_rating < 1 || _rating > 5){ //rating must be between 1 and 5\r\n\t\t\trevert();\r\n\t\t}\r\n\t\telse {\r\n\t\t\tteachers[_teacherID].teacherRatings.push(_rating) -1;\r\n\t\t\t// teachers[_teacherID].teacherReviews.push(_review) -1;\r\n\t\t}\r\n\t}\r\n\t\r\n\t\t\t\r\n\t//returns the average of all ratings of teacher with given ID\r\n\tfunction _getTeacherRatings(uint8 _teacherID) view public returns (uint256) {\r\n\t\tuint256 avg = 0;\r\n\t\tuint256 len = teachers[_teacherID].teacherRatings.length;\r\n\t\tfor(uint i =0; i<len; i++){\r\n\t\t\tavg += teachers[_teacherID].teacherRatings[i];\r\n\t\t}\r\n\t\tavg = avg / len;\r\n\t\treturn avg; \r\n\t}\r\n\r\n\t// function _getTeacherReviews (uint8 _id) view public returns(string[] memory) {\r\n\t// \treturn teachers[_id].teacherReviews;\r\n\t// }\r\n\t\r\n\r\n\t// function _placeVote(bytes32 _teacher) public {\r\n\t// \tteacherRatings[_teacher] += 1;\r\n\t// }\r\n\t\r\n\t//returns array of teacher Ids rather than array of structs,\r\n\t//which isnt currently supported by solidity\r\n\tfunction _getTeacherIds() view public returns (uint256[] memory){\r\n\t\tuint256[] memory _Ids;\r\n\t\tfor(uint i; i < teachers.length; i++){\r\n\t\t\t_Ids[i] = teachers[i].id;\r\n\t\t}\r\n\t\treturn _Ids;\r\n\t}\r\n}",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.0+commit.1d4f565a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[{\"name\":\"_teacherID\",\"type\":\"uint8\"}],\"name\":\"_getTeacherRatings\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"_getTeacherIds\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256[]\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_teacherID\",\"type\":\"uint8\"},{\"name\":\"_rating\",\"type\":\"uint256\"}],\"name\":\"_submitRating\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"_id\",\"type\":\"uint256\"}],\"name\":\"_getTeacherName\",\"outputs\":[{\"name\":\"\",\"type\":\"bytes32\"},{\"name\":\"\",\"type\":\"bytes32\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_fname\",\"type\":\"bytes32\"},{\"name\":\"_lname\",\"type\":\"bytes32\"}],\"name\":\"_createTeacher\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Users/atyler/teacherrate/backend/contracts/TeacherRate.sol\":\"TeacherRate\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/atyler/teacherrate/backend/contracts/TeacherRate.sol\":{\"keccak256\":\"0xef2c9acc60915ecf4a3506e83a6b4e8117f72c2dfad82676d70ca9c5c55e1cbe\",\"urls\":[\"bzzr://e88182d18be1a6886a888e543266a81c2a1e02ea56e22acfbbfc06016b35a78f\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5061056b806100206000396000f3fe60806040526004361061006d576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680636d53a79e146100725780638afc41c1146100c4578063959061d014610130578063cb2e1d0614610178578063de8760d5146101ce575b600080fd5b34801561007e57600080fd5b506100ae6004803603602081101561009557600080fd5b81019080803560ff169060200190929190505050610213565b6040518082815260200191505060405180910390f35b3480156100d057600080fd5b506100d96102b7565b6040518080602001828103825283818151815260200191508051906020019060200280838360005b8381101561011c578082015181840152602081019050610101565b505050509050019250505060405180910390f35b34801561013c57600080fd5b506101766004803603604081101561015357600080fd5b81019080803560ff1690602001909291908035906020019092919050505061031c565b005b34801561018457600080fd5b506101b16004803603602081101561019b57600080fd5b8101908080359060200190929190505050610389565b604051808381526020018281526020019250505060405180910390f35b3480156101da57600080fd5b50610211600480360360408110156101f157600080fd5b8101908080359060200190929190803590602001909291905050506103d7565b005b600080600090506000808460ff1681548110151561022d57fe5b906000526020600020906004020160030180549050905060008090505b8181101561029e5760008560ff1681548110151561026457fe5b90600052602060002090600402016003018181548110151561028257fe5b906000526020600020015483019250808060010191505061024a565b5080828115156102aa57fe5b0491508192505050919050565b60608060005b600080549050811015610314576000818154811015156102d957fe5b90600052602060002090600402016000015482828151811015156102f957fe5b906020019060200201818152505080806001019150506102bd565b508091505090565b600181108061032b5750600581115b1561033557600080fd5b600160008360ff1681548110151561034957fe5b9060005260206000209060040201600301829080600181540180825580915050906001820390600052602060002001600090919290919091505550505050565b60008060008381548110151561039b57fe5b9060005260206000209060040201600101546000848154811015156103bc57fe5b90600052602060002090600402016002015491509150915091565b60006103e16104a8565b90506001600060806040519081016040528084815260200186815260200185815260200160006040519080825280602002602001820160405280156104355781602001602082028038833980820191505090505b5081525090806001815401808255809150509060018203906000526020600020906004020160009091929091909150600082015181600001556020820151816001015560408201518160020155606082015181600301908051906020019061049e9291906104cd565b5050505050505050565b6000600160008054905010156104c157600090506104ca565b60008054905090505b90565b828054828255906000526020600020908101928215610509579160200282015b828111156105085782518255916020019190600101906104ed565b5b509050610516919061051a565b5090565b61053c91905b80821115610538576000816000905550600101610520565b5090565b9056fea165627a7a723058207d24c60229fb0e2fc7dab59a87a689d5ebbe112741c3967044ee4bab386585010029",
+  "deployedBytecode": "0x60806040526004361061006d576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680636d53a79e146100725780638afc41c1146100c4578063959061d014610130578063cb2e1d0614610178578063de8760d5146101ce575b600080fd5b34801561007e57600080fd5b506100ae6004803603602081101561009557600080fd5b81019080803560ff169060200190929190505050610213565b6040518082815260200191505060405180910390f35b3480156100d057600080fd5b506100d96102b7565b6040518080602001828103825283818151815260200191508051906020019060200280838360005b8381101561011c578082015181840152602081019050610101565b505050509050019250505060405180910390f35b34801561013c57600080fd5b506101766004803603604081101561015357600080fd5b81019080803560ff1690602001909291908035906020019092919050505061031c565b005b34801561018457600080fd5b506101b16004803603602081101561019b57600080fd5b8101908080359060200190929190505050610389565b604051808381526020018281526020019250505060405180910390f35b3480156101da57600080fd5b50610211600480360360408110156101f157600080fd5b8101908080359060200190929190803590602001909291905050506103d7565b005b600080600090506000808460ff1681548110151561022d57fe5b906000526020600020906004020160030180549050905060008090505b8181101561029e5760008560ff1681548110151561026457fe5b90600052602060002090600402016003018181548110151561028257fe5b906000526020600020015483019250808060010191505061024a565b5080828115156102aa57fe5b0491508192505050919050565b60608060005b600080549050811015610314576000818154811015156102d957fe5b90600052602060002090600402016000015482828151811015156102f957fe5b906020019060200201818152505080806001019150506102bd565b508091505090565b600181108061032b5750600581115b1561033557600080fd5b600160008360ff1681548110151561034957fe5b9060005260206000209060040201600301829080600181540180825580915050906001820390600052602060002001600090919290919091505550505050565b60008060008381548110151561039b57fe5b9060005260206000209060040201600101546000848154811015156103bc57fe5b90600052602060002090600402016002015491509150915091565b60006103e16104a8565b90506001600060806040519081016040528084815260200186815260200185815260200160006040519080825280602002602001820160405280156104355781602001602082028038833980820191505090505b5081525090806001815401808255809150509060018203906000526020600020906004020160009091929091909150600082015181600001556020820151816001015560408201518160020155606082015181600301908051906020019061049e9291906104cd565b5050505050505050565b6000600160008054905010156104c157600090506104ca565b60008054905090505b90565b828054828255906000526020600020908101928215610509579160200282015b828111156105085782518255916020019190600101906104ed565b5b509050610516919061051a565b5090565b61053c91905b80821115610538576000816000905550600101610520565b5090565b9056fea165627a7a723058207d24c60229fb0e2fc7dab59a87a689d5ebbe112741c3967044ee4bab386585010029",
+  "sourceMap": "27:2537:1:-;;;477:59;8:9:-1;5:2;;;30:1;27;20:12;5:2;477:59:1;27:2537;;;;;;",
+  "deployedSourceMap": "27:2537:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1540:285;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1540:285:1;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1540:285:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2178:188;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2178:188:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;2178:188:1;;;;;;;;;;;;;;;;;1172:293;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1172:293:1;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1172:293:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2420:138;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2420:138:1;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;2420:138:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;673:269;;8:9:-1;5:2;;;30:1;27;20:12;5:2;673:269:1;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;673:269:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1540:285;1607:7;1621:11;1635:1;1621:15;;1641:11;1655:8;1664:10;1655:20;;;;;;;;;;;;;;;;;;;;;;:35;;:42;;;;1641:56;;1706:6;1714:1;1706:9;;1702:83;1719:3;1717:1;:5;1702:83;;;1741:8;1750:10;1741:20;;;;;;;;;;;;;;;;;;;;;;:35;;1777:1;1741:38;;;;;;;;;;;;;;;;;;1734:45;;;;1724:3;;;;;;;1702:83;;;;1801:3;1795;:9;;;;;;;;1789:15;;1816:3;1809:10;;;;1540:285;;;:::o;2178:188::-;2225:16;2247:21;2277:6;2273:73;2289:8;:15;;;;2285:1;:19;2273:73;;;2326:8;2335:1;2326:11;;;;;;;;;;;;;;;;;;;;:14;;;2316:4;2321:1;2316:7;;;;;;;;;;;;;;;;;:24;;;;;2306:3;;;;;;;2273:73;;;;2357:4;2350:11;;;2178:188;:::o;1172:293::-;1257:1;1247:7;:11;:26;;;;1272:1;1262:7;:11;1247:26;1243:218;;;1313:8;;;1243:218;1393:1;1342:8;1351:10;1342:20;;;;;;;;;;;;;;;;;;;;;;:35;;1383:7;1342:49;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;1342:49:1;;;;;;;;;;;;;;;;;;;;;:52;;1172:293;;:::o;2420:138::-;2479:7;2488;2510:8;2519:3;2510:13;;;;;;;;;;;;;;;;;;;;:20;;;2532:8;2541:3;2532:13;;;;;;;;;;;;;;;;;;;;:20;;;2502:51;;;;2420:138;;;:::o;673:269::-;742:11;756:13;:11;:13::i;:::-;742:27;;936:1;774:8;788:145;;;;;;;;;806:3;788:145;;;;823:6;788:145;;;;843:6;788:145;;;;885:1;871:16;;;;;;;;;;;;;;;;;;;;;;29:2:-1;21:6;17:15;117:4;105:10;97:6;88:34;148:4;140:6;136:17;126:27;;0:157;871:16:1;;;;788:145;;;774:160;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;774:160:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;:163;;673:269;;;:::o;984:139::-;1030:7;1065:1;1047:8;:15;;;;:19;1044:74;;;1080:1;1073:8;;;;1044:74;1103:8;:15;;;;1096:22;;984:139;;:::o;27:2537::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.5.0;\r\n\r\ncontract TeacherRate {\r\n\r\n\t// mapping (bytes32 => uint8) public teacherRatings;\r\n\r\n\t// bytes32[] teachers;\r\n\r\n\t//teachers have unique ID, generated upon creation\r\n\t//A name, provided upon creation\r\n\t//and an array of ratings to be averaged\r\n\tstruct teacher {\r\n\t\tuint256 id;\r\n\t\tbytes32 f_name;\r\n\t\tbytes32 l_name;\r\n\t\tuint256[] teacherRatings;\r\n\t\t// string[] teacherReviews;\r\n\t}\r\n\r\n\tteacher[] teachers; //array of all teachers\r\n\r\n\t//This does nothing\r\n\tconstructor() public {\r\n\t\t// teachers = teacherEntries;\r\n\t}\r\n\r\n\t//pushes a new instance of teacher struct to array of all teachers\r\n\t//ID is autogenerated and ratings are an empty dynamic array\r\n\tfunction _createTeacher (bytes32 _fname, bytes32 _lname) public {\r\n\t\tuint256 _id = _generateID();\r\n\t\tteachers.push(teacher({\r\n\t\t\tid: _id,\r\n\t\t\tf_name: _fname,\r\n\t\t\tl_name: _lname,\r\n\t\t\tteacherRatings: new uint256[](0)\r\n\t\t\t// teacherReviews: new string[](0)\r\n\t\t\t})) -1;\r\n\t}\r\n\r\n\t//Generates a new id sequentially \r\n\tfunction _generateID () view internal returns(uint256) {\r\n\t\tif(teachers.length < 1){\r\n\t\t\treturn 0;\r\n\t\t}\r\n\t\telse return teachers.length;\r\n\t}\r\n\r\n\t//', string memory _review' removed param\r\n\tfunction _submitRating (uint8 _teacherID, uint256 _rating) public {\r\n\t\tif (_rating < 1 || _rating > 5){ //rating must be between 1 and 5\r\n\t\t\trevert();\r\n\t\t}\r\n\t\telse {\r\n\t\t\tteachers[_teacherID].teacherRatings.push(_rating) -1;\r\n\t\t\t// teachers[_teacherID].teacherReviews.push(_review) -1;\r\n\t\t}\r\n\t}\r\n\t\r\n\t\t\t\r\n\t//returns the average of all ratings of teacher with given ID\r\n\tfunction _getTeacherRatings(uint8 _teacherID) view public returns (uint256) {\r\n\t\tuint256 avg = 0;\r\n\t\tuint256 len = teachers[_teacherID].teacherRatings.length;\r\n\t\tfor(uint i =0; i<len; i++){\r\n\t\t\tavg += teachers[_teacherID].teacherRatings[i];\r\n\t\t}\r\n\t\tavg = avg / len;\r\n\t\treturn avg; \r\n\t}\r\n\r\n\t// function _getTeacherReviews (uint8 _id) view public returns(string[] memory) {\r\n\t// \treturn teachers[_id].teacherReviews;\r\n\t// }\r\n\t\r\n\r\n\t// function _placeVote(bytes32 _teacher) public {\r\n\t// \tteacherRatings[_teacher] += 1;\r\n\t// }\r\n\t\r\n\t//returns array of teacher Ids rather than array of structs,\r\n\t//which isnt currently supported by solidity\r\n\tfunction _getTeacherIds() view public returns (uint256[] memory){\r\n\t\tuint256[] memory _Ids;\r\n\t\tfor(uint i; i < teachers.length; i++){\r\n\t\t\t_Ids[i] = teachers[i].id;\r\n\t\t}\r\n\t\treturn _Ids;\r\n\t}\r\n\r\n\t//returns first, last of teacher with given id\r\n\tfunction _getTeacherName (uint256 _id) view public returns(bytes32, bytes32) {\r\n\t\treturn (teachers[_id].f_name, teachers[_id].l_name);\r\n\t}\r\n\t\r\n}",
   "sourcePath": "C:/Users/atyler/teacherrate/backend/contracts/TeacherRate.sol",
   "ast": {
     "absolutePath": "/C/Users/atyler/teacherrate/backend/contracts/TeacherRate.sol",
     "exportedSymbols": {
       "TeacherRate": [
-        238
+        258
       ]
     },
-    "id": 239,
+    "id": 259,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -111,9 +134,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 238,
+        "id": 258,
         "linearizedBaseContracts": [
-          238
+          258
         ],
         "name": "TeacherRate",
         "nodeType": "ContractDefinition",
@@ -239,7 +262,7 @@
             ],
             "name": "teacher",
             "nodeType": "StructDefinition",
-            "scope": 238,
+            "scope": 258,
             "src": "269:133:1",
             "visibility": "public"
           },
@@ -248,7 +271,7 @@
             "id": 71,
             "name": "teachers",
             "nodeType": "VariableDeclaration",
-            "scope": 238,
+            "scope": 258,
             "src": "407:18:1",
             "stateVariable": true,
             "storageLocation": "default",
@@ -307,7 +330,7 @@
               "parameters": [],
               "src": "498:0:1"
             },
-            "scope": 238,
+            "scope": 258,
             "src": "477:59:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -703,7 +726,7 @@
               "parameters": [],
               "src": "737:0:1"
             },
-            "scope": 238,
+            "scope": 258,
             "src": "673:269:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -900,7 +923,7 @@
               ],
               "src": "1029:9:1"
             },
-            "scope": 238,
+            "scope": 258,
             "src": "984:139:1",
             "stateMutability": "view",
             "superFunction": null,
@@ -1207,10 +1230,10 @@
                             "name": "revert",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [
-                              258,
-                              259
+                              278,
+                              279
                             ],
-                            "referencedDeclaration": 258,
+                            "referencedDeclaration": 278,
                             "src": "1313:6:1",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_revert_pure$__$returns$__$",
@@ -1245,7 +1268,7 @@
             "implemented": true,
             "kind": "function",
             "modifiers": [],
-            "name": "_submitReview",
+            "name": "_submitRating",
             "nodeType": "FunctionDefinition",
             "parameters": {
               "id": 127,
@@ -1312,7 +1335,7 @@
               "parameters": [],
               "src": "1238:0:1"
             },
-            "scope": 238,
+            "scope": 258,
             "src": "1172:293:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1919,7 +1942,7 @@
               ],
               "src": "1606:9:1"
             },
-            "scope": 238,
+            "scope": 258,
             "src": "1540:285:1",
             "stateMutability": "view",
             "superFunction": null,
@@ -2315,27 +2338,275 @@
               ],
               "src": "2224:18:1"
             },
-            "scope": 238,
+            "scope": 258,
             "src": "2178:188:1",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 256,
+              "nodeType": "Block",
+              "src": "2497:61:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "components": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "id": 246,
+                            "name": "teachers",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 71,
+                            "src": "2510:8:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_array$_t_struct$_teacher_$68_storage_$dyn_storage",
+                              "typeString": "struct TeacherRate.teacher storage ref[] storage ref"
+                            }
+                          },
+                          "id": 248,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "id": 247,
+                            "name": "_id",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 239,
+                            "src": "2519:3:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "2510:13:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_teacher_$68_storage",
+                            "typeString": "struct TeacherRate.teacher storage ref"
+                          }
+                        },
+                        "id": 249,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "f_name",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 62,
+                        "src": "2510:20:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "id": 250,
+                            "name": "teachers",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 71,
+                            "src": "2532:8:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_array$_t_struct$_teacher_$68_storage_$dyn_storage",
+                              "typeString": "struct TeacherRate.teacher storage ref[] storage ref"
+                            }
+                          },
+                          "id": 252,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "id": 251,
+                            "name": "_id",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 239,
+                            "src": "2541:3:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "2532:13:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_teacher_$68_storage",
+                            "typeString": "struct TeacherRate.teacher storage ref"
+                          }
+                        },
+                        "id": 253,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "l_name",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 64,
+                        "src": "2532:20:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      }
+                    ],
+                    "id": 254,
+                    "isConstant": false,
+                    "isInlineArray": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "TupleExpression",
+                    "src": "2509:44:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$_t_bytes32_$_t_bytes32_$",
+                      "typeString": "tuple(bytes32,bytes32)"
+                    }
+                  },
+                  "functionReturnParameters": 245,
+                  "id": 255,
+                  "nodeType": "Return",
+                  "src": "2502:51:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 257,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "_getTeacherName",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 240,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 239,
+                  "name": "_id",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 257,
+                  "src": "2446:11:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 238,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2446:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2445:13:1"
+            },
+            "returnParameters": {
+              "id": 245,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 242,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 257,
+                  "src": "2479:7:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 241,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2479:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 244,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 257,
+                  "src": "2488:7:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 243,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2488:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2478:18:1"
+            },
+            "scope": 258,
+            "src": "2420:138:1",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 239,
-        "src": "27:2342:1"
+        "scope": 259,
+        "src": "27:2537:1"
       }
     ],
-    "src": "0:2369:1"
+    "src": "0:2564:1"
   },
   "legacyAST": {
     "absolutePath": "/C/Users/atyler/teacherrate/backend/contracts/TeacherRate.sol",
     "exportedSymbols": {
       "TeacherRate": [
-        238
+        258
       ]
     },
-    "id": 239,
+    "id": 259,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -2355,9 +2626,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 238,
+        "id": 258,
         "linearizedBaseContracts": [
-          238
+          258
         ],
         "name": "TeacherRate",
         "nodeType": "ContractDefinition",
@@ -2483,7 +2754,7 @@
             ],
             "name": "teacher",
             "nodeType": "StructDefinition",
-            "scope": 238,
+            "scope": 258,
             "src": "269:133:1",
             "visibility": "public"
           },
@@ -2492,7 +2763,7 @@
             "id": 71,
             "name": "teachers",
             "nodeType": "VariableDeclaration",
-            "scope": 238,
+            "scope": 258,
             "src": "407:18:1",
             "stateVariable": true,
             "storageLocation": "default",
@@ -2551,7 +2822,7 @@
               "parameters": [],
               "src": "498:0:1"
             },
-            "scope": 238,
+            "scope": 258,
             "src": "477:59:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -2947,7 +3218,7 @@
               "parameters": [],
               "src": "737:0:1"
             },
-            "scope": 238,
+            "scope": 258,
             "src": "673:269:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -3144,7 +3415,7 @@
               ],
               "src": "1029:9:1"
             },
-            "scope": 238,
+            "scope": 258,
             "src": "984:139:1",
             "stateMutability": "view",
             "superFunction": null,
@@ -3451,10 +3722,10 @@
                             "name": "revert",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [
-                              258,
-                              259
+                              278,
+                              279
                             ],
-                            "referencedDeclaration": 258,
+                            "referencedDeclaration": 278,
                             "src": "1313:6:1",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_revert_pure$__$returns$__$",
@@ -3489,7 +3760,7 @@
             "implemented": true,
             "kind": "function",
             "modifiers": [],
-            "name": "_submitReview",
+            "name": "_submitRating",
             "nodeType": "FunctionDefinition",
             "parameters": {
               "id": 127,
@@ -3556,7 +3827,7 @@
               "parameters": [],
               "src": "1238:0:1"
             },
-            "scope": 238,
+            "scope": 258,
             "src": "1172:293:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -4163,7 +4434,7 @@
               ],
               "src": "1606:9:1"
             },
-            "scope": 238,
+            "scope": 258,
             "src": "1540:285:1",
             "stateMutability": "view",
             "superFunction": null,
@@ -4559,18 +4830,266 @@
               ],
               "src": "2224:18:1"
             },
-            "scope": 238,
+            "scope": 258,
             "src": "2178:188:1",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 256,
+              "nodeType": "Block",
+              "src": "2497:61:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "components": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "id": 246,
+                            "name": "teachers",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 71,
+                            "src": "2510:8:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_array$_t_struct$_teacher_$68_storage_$dyn_storage",
+                              "typeString": "struct TeacherRate.teacher storage ref[] storage ref"
+                            }
+                          },
+                          "id": 248,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "id": 247,
+                            "name": "_id",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 239,
+                            "src": "2519:3:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "2510:13:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_teacher_$68_storage",
+                            "typeString": "struct TeacherRate.teacher storage ref"
+                          }
+                        },
+                        "id": 249,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "f_name",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 62,
+                        "src": "2510:20:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "id": 250,
+                            "name": "teachers",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 71,
+                            "src": "2532:8:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_array$_t_struct$_teacher_$68_storage_$dyn_storage",
+                              "typeString": "struct TeacherRate.teacher storage ref[] storage ref"
+                            }
+                          },
+                          "id": 252,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "id": 251,
+                            "name": "_id",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 239,
+                            "src": "2541:3:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "2532:13:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_teacher_$68_storage",
+                            "typeString": "struct TeacherRate.teacher storage ref"
+                          }
+                        },
+                        "id": 253,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "l_name",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 64,
+                        "src": "2532:20:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      }
+                    ],
+                    "id": 254,
+                    "isConstant": false,
+                    "isInlineArray": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "TupleExpression",
+                    "src": "2509:44:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$_t_bytes32_$_t_bytes32_$",
+                      "typeString": "tuple(bytes32,bytes32)"
+                    }
+                  },
+                  "functionReturnParameters": 245,
+                  "id": 255,
+                  "nodeType": "Return",
+                  "src": "2502:51:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 257,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "_getTeacherName",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 240,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 239,
+                  "name": "_id",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 257,
+                  "src": "2446:11:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 238,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2446:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2445:13:1"
+            },
+            "returnParameters": {
+              "id": 245,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 242,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 257,
+                  "src": "2479:7:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 241,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2479:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 244,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 257,
+                  "src": "2488:7:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 243,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2488:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2478:18:1"
+            },
+            "scope": 258,
+            "src": "2420:138:1",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 239,
-        "src": "27:2342:1"
+        "scope": 259,
+        "src": "27:2537:1"
       }
     ],
-    "src": "0:2369:1"
+    "src": "0:2564:1"
   },
   "compiler": {
     "name": "solc",
@@ -4585,7 +5104,7 @@
     }
   },
   "schemaVersion": "3.0.6",
-  "updatedAt": "2019-04-13T00:46:25.474Z",
+  "updatedAt": "2019-04-13T00:52:00.000Z",
   "devdoc": {
     "methods": {}
   },
