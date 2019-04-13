@@ -9,6 +9,7 @@ import Divider from "@material-ui/core/Divider";
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import ReactStars from 'react-stars';
+import Ratings from '../Ratings';
 import PropTypes from 'prop-types';
 
 const styles = muiBaseTheme => ({
@@ -65,16 +66,20 @@ const styles = muiBaseTheme => ({
 class ProfessorCard extends Component {
 
     state = { 
-        expanded: false
+        display: false
      };
 
-    handleExpandClick = () => {
-        this.setState({ expanded: !this.state.expanded });
-    }
+    displayRating = () => {
+        this.setState({ display: true});
+    };
 
-    handleStarClick = () => {
+    hideDisplayRating = () => {
+        this.setState({display: false});
+    };
 
-    }
+    toggleDisplay = () => {
+        this.setState({display: !this.state.display});
+    };
    
     render() {
         const { classes } = this.props;
@@ -108,14 +113,15 @@ class ProfessorCard extends Component {
                                 variant="contained"
                                 size="small"
                                 className={classnames(classes.expand, classes.rateText)}
-                                onClick={this.handleExpandClick}
-                                aria-expanded={this.state.expanded}
+                                onClick={this.toggleDisplay}
+                                aria-expanded={this.state.display}
                                 aria-label="Show more"
                                 color="primary"
                                 style={{backgroundColor: "#db4c40", fontFamily: "Titillium Web"}}
                                 >
                                 Rate Professor
                             </Button>
+                            <Ratings open={this.state.display} onClose={this.toggleDisplay} professor={this.props.professor.rating}/>
                         </CardActions>
                         <ReactStars value={this.props.professor.rating} edit={false} className={classes.stars} count={5} size={20} color2={'#ffd700'}/>
                     </CardContent>
