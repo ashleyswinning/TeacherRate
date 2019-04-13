@@ -9,14 +9,14 @@ contract TeacherRate {
 	struct teacher {
 		uint256 id;
 		bytes32 name;
-		uint8[] teacherRatings;
-		string[] teacherReviews;
+		uint256[] teacherRatings;
+		// string[] teacherReviews;
 	}
 
 	teacher[] teachers;
 
 
-	constructor(bytes32[] memory teacherEntries) public {
+	constructor() public {
 		// teachers = teacherEntries;
 	}
 
@@ -25,25 +25,26 @@ contract TeacherRate {
 		teachers.push(teacher({
 			id: _id,
 			name: _name,
-			teacherRatings: new uint8[](0),
-			teacherReviews: new string[](0)
-			}) -1);
+			teacherRatings: new uint256[](0)
+			// teacherReviews: new string[](0)
+			})) -1;
 	}
 
-	function _generateID () internal returns(uint256) {
+	function _generateID () view internal returns(uint256) {
 		if(teachers.length < 1){
 			return 0;
 		}
 		else return teachers.length;
 	}
 
-	function _submitReview (uint8 _teacherID, uint8 _rating, string memory _review) view public {
+//, string memory _review
+	function _submitReview (uint8 _teacherID, uint256 _rating) public {
 		if (_rating < 1 || _rating > 5){ //rating must be between 1 and 5
 			revert();
 		}
 		else {
 			teachers[_teacherID].teacherRatings.push(_rating) -1;
-			teachers[_teacherID].teacherReviews.push(_review) -1;
+			// teachers[_teacherID].teacherReviews.push(_review) -1;
 		}
 	}
 	
@@ -59,16 +60,20 @@ contract TeacherRate {
 		return avg; 
 	}
 
-	function _getTeacherReviews (uint8 _id) view public returns(string[] memory) {
-		return teachers[_id].teacherReviews;
-	}
+	// function _getTeacherReviews (uint8 _id) view public returns(string[] memory) {
+	// 	return teachers[_id].teacherReviews;
+	// }
 	
 
 	// function _placeVote(bytes32 _teacher) public {
 	// 	teacherRatings[_teacher] += 1;
 	// }
 	
-	function _getTeachers() view public returns (teacher[] memory){
-		return teachers;
+	function _getTeacherIds() view public returns (uint256[] memory){
+		uint256[] memory _Ids;
+		for(uint i; i < teachers.length; i++){
+			_Ids[i] = teachers[i].id;
+		}
+		return _Ids;
 	}
 }
