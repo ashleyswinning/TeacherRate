@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ProfessorList from './ProfessorList';
+import {contract} from '../../setup';
 
 export default class Professors extends Component{
 
@@ -14,7 +15,7 @@ export default class Professors extends Component{
                     "name": "Ron Swanson",
                     "course": "HIST 1111 Survey of World History",
                     "imageUrl": "../images/ron_swanson.jpg",
-                    "rating": 0,
+                    "rating": 0, // here you would call function to get rating from contract?
                     "votes": 0
                 },
                 {
@@ -22,7 +23,7 @@ export default class Professors extends Component{
                     "name": "Robin Williams",
                     "course": "ENGL 2130 American Literature",
                     "imageUrl": "../images/robin_williams.jpg",
-                    "rating": 0,
+                    "rating": 0, // here you would call function to get rating from contract?
                     "votes": 0
                 },
                 {
@@ -66,6 +67,8 @@ export default class Professors extends Component{
                 this.setState({
                     newProfessor
                 });
+
+                // here is where contract._submitRating(professor.name, professor.newRating); would be called to submit rating
             }
         });
     }
