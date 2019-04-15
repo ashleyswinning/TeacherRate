@@ -1,6 +1,6 @@
 # TeacherRate
 
-** Must have truffle and testrpc.. if unsure, run `npm install -g truffle` and `npm install -g ethereumjs-testrpc`**
+** Must have truffle and ganache and drizzle ... will add in installation instructions in a little bit**
 
 I will update this README to be prettier closer to the due date. :)
 
