@@ -32,31 +32,31 @@ export default class Ratings extends Component {
     // records value submitted for Engaging section
     engagingChanged = (event) => {
         this.setState({engaging: event});
-        console.log(event);
+        //console.log(event);
     };
 
     // records value submitted for Helpful section
     helpfulChanged = (event) => {
         this.setState({helpful: event});
-        console.log(event);
+        //console.log(event);
     };
 
     // records value submitted for Creative section
     creativeChanged = (event) => {
         this.setState({creative: event});
-        console.log(event);
+        //console.log(event);
     };
 
     // records value submitted for Knowledgeable section
     knowledgeableChanged = (event) => {
         this.setState({knowledgeable: event});
-        console.log(event);
+        //console.log(event);
     };
 
     // records value submitted for Organized section
     organizedChanged = (event) => {
         this.setState({organized: event});
-        console.log(event);
+        //console.log(event);
     };
 
     // function takes average on the ratings and updates rating when submitted
@@ -98,9 +98,9 @@ export default class Ratings extends Component {
     render() {
 
         // records value submitted for Creative section
-        console.log(this.state);
-        console.log(this.props);
-        console.log(this.retrieveLastName());
+        //console.log(this.state);
+        //console.log(this.props);
+        //console.log(this.retrieveLastName());
 
         const centerText = {
             fontFamily: "Titillium Web",

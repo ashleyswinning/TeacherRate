@@ -90,7 +90,7 @@ class ProfessorCard extends Component {
         const { classes } = this.props;
 
         // allows visibility when debugging capturing information regarding props
-        console.log(this.props);
+        //console.log(this.props);
 
         return (
             <div className={classes.professorCard}>
