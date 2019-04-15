@@ -16,7 +16,7 @@ Cameron Smith, Austin Tyler, Quantonio Nunnally, Jacen Duran, Ashley Huynh
 * `cd` into `backend` and run `ganache-cli`
 
 * In another tab, `cd` into `backend` directory and do `truffle compile` then `truffle migrate --reset`
-> This deploys the contract 
+> This deploys the contract on `ganache-cli`. If you run this before opening `ganache-cli`, it will fail.
 
 * Then, `cd` into `frontend` in another tab and run `npm start` -- if this fails, try `npm install` and then `npm start`
 
