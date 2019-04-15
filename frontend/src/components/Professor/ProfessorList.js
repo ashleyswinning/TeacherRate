@@ -6,7 +6,7 @@ class ProfessorList extends Component {
 
     render() {
         // allows visibility when debugging capturing information regarding props
-        console.log(this.props);
+        //console.log(this.props);
 
         // obtain list of professors and return them as ProfessorCard elements to later populate card view with professors
         // and their respective attributes 

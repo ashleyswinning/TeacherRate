@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 import ProfessorList from './ProfessorList';
-import {contract} from '../../setup';
+
 
 export default class Professors extends Component{
 
-    constructor(props){
+
+    constructor(props, context){
         super(props);
+        this.contracts = context.drizzle.contracts;
 
         // initialized state that will hold static list of professors with a starting rating of 0
         this.state = {
@@ -31,7 +34,7 @@ export default class Professors extends Component{
                     "name": "Reese Witherspoon",
                     "course": "ECON 3910 Microeconomics",
                     "imageUrl": "../images/reese_witherspoon.jpg",
-                    "rating": 0,
+                    "rating": 0, // here you would call function to get rating from contract?
                     "votes": 0
                 },
                 {
@@ -39,7 +42,7 @@ export default class Professors extends Component{
                     "name": "Dwight Schrute",
                     "course": "GRMN 4431 German for International Business",
                     "imageUrl": "../images/dwight.jpg",
-                    "rating": 0,
+                    "rating": 0, // here you would call function to get rating from contract?
                     "votes": 0
                 },
                 {
@@ -47,7 +50,7 @@ export default class Professors extends Component{
                     "name": "Betty White",
                     "course": "FILM 2700 History of the Motion Picture",
                     "imageUrl": "../images/betty_white.jpg",
-                    "rating": 0,
+                    "rating": 0, // here you would call function to get rating from contract?
                     "votes": 0
                 }
             ]
@@ -68,14 +71,14 @@ export default class Professors extends Component{
                     newProfessor
                 });
 
-                // here is where contract._submitRating(professor.name, professor.newRating); would be called to submit rating
+                this.contracts.TeacherRate.methods._submitRating.cacheSend(professor.id, professor.newRating); // the parameters here are not working
             }
         });
     }
 
     render() {
         // allows visibility when debugging capturing information regarding props
-        console.log(this.state);
+        //console.log(this.state);
 
         return (
             <div>
@@ -83,4 +86,7 @@ export default class Professors extends Component{
             </div>
         );
     }
+}
+Professors.contextTypes = {
+    drizzle: PropTypes.object
 }

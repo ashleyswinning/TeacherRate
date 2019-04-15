@@ -3,18 +3,32 @@ import NavBar from './components/NavBar.js';
 import Professors from './components/Professor/Professors.js';
 import './App.css';
 
+import { drizzleConnect } from "drizzle-react";
+
 class App extends Component {
 
   render() {
-    return (
-      <div className="App">
-        <NavBar/>
-        <div className="mt-5">
-          <Professors />
+    const { drizzleStatus, accounts } = this.props;
+    if (drizzleStatus.initialized) {
+      return (
+        <div className="App">
+          <NavBar/>
+          <div className="mt-5">
+            <Professors />
+          </div>
         </div>
-      </div>
     );
+    }
+    return <div>Loading dapp...</div>;
   }
 }
+const mapStateToProps = state => {
+  return {
+    accounts: state.accounts,
+    drizzleStatus: state.drizzleStatus,
+    TeacherRate: state.contracts.TeacherRate
+  };
+};
 
-export default App;
+const AppContainer = drizzleConnect(App, mapStateToProps);
+export default AppContainer;
