@@ -1407,10 +1407,16 @@
       "links": {},
       "address": "0x0094afdAAfcD95671789A31B3F7E9855EC4c8650",
       "transactionHash": "0x8d2fc032da25698028457942811bbfe48d5e42a8581166e3dc8d4626375492c3"
+    },
+    "1555349036913": {
+      "events": {},
+      "links": {},
+      "address": "0x7eE4A6332C06720439F795096835aDA5a09f74bf",
+      "transactionHash": "0x1a03b27c4d4f2e315916dc4d36b35d302e2391470919c7936860d08b7d4a34b7"
     }
   },
   "schemaVersion": "3.0.5",
-  "updatedAt": "2019-04-14T23:48:51.338Z",
+  "updatedAt": "2019-04-15T18:00:04.999Z",
   "devdoc": {
     "methods": {}
   },
