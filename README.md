@@ -10,7 +10,7 @@ Cameron Smith, Austin Tyler, Quantonio Nunnally, Jacen Duran, Ashley Huynh
 
 * ###### If you don't, then run `sudo npm install -g truffle`, which requires the npm package. In order to do this, you may need to install Node, which is available via homebrew on Mac. For more information please check out the following link: https://changelog.com/posts/install-node-js-with-homebrew-on-os-x 
 
-* ###### Make sure you have `drizzle` installed. To do this, run `yarn add redux drizzle drizzle-react drizzle-react-components`. If you do not have `yarn`, run `npm i yarn`.
+* ###### Make sure you have `drizzle` installed. To do this, run `yarn add redux drizzle drizzle-react drizzle-react-components`. If you do not have `yarn`, run `npm install -g yarn`.
 
 * ###### Make sure you have MetaMask installed. If you do not have MetaMask, installation instructions are available here (https://blog.wetrust.io/how-to-install-and-use-metamask-7210720ca047?gi=e44b73bfc053).
 
