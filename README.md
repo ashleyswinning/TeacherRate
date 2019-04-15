@@ -19,6 +19,8 @@ Cameron Smith, Austin Tyler, Quantonio Nunnally, Jacen Duran, Ashley Huynh
 
 * For the Workspace, name it `TeacherRate` and import the `truffle-config.js` file from `backend`.
 
+* Update `truffle-config.js` so it points to port `7545`. 
+
 * In another tab, `cd` into `backend` directory and do `truffle compile` then `truffle migrate --reset`
 > This deploys the contract onto the Ganache GUI.
 
