@@ -1,6 +1,5 @@
 # TeacherRate
 Cameron Smith, Austin Tyler, Quantonio Nunnally, Jacen Duran, Ashley Huynh
-CSC 4980
 
 # How to Run Programs:
 
