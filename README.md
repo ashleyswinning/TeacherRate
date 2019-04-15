@@ -6,9 +6,7 @@ I will update this README to be prettier closer to the due date. :)
 
 To run:
 
-`cd` into `backend` and run `testrpc`
-
-launch Ganache and do "quickstart"
+`cd` into `backend` and run `ganache-cli`
 
 in another tab, `cd` into `backend` directory and do `truffle compile` then `truffle migrate --reset`
 
