@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import ProfessorList from './ProfessorList';
+import web3 from 'web3';
 
 
 export default class Professors extends Component{
@@ -9,6 +10,8 @@ export default class Professors extends Component{
     constructor(props, context){
         super(props);
         this.contracts = context.drizzle.contracts;
+        var state = context.drizzle.store.getState();
+        //console.log(context.drizzle.store.getState().contracts.TeacherRate._getTeacherRatings.valueOf());
 
         // initialized state that will hold static list of professors with a starting rating of 0
         this.state = {
@@ -71,9 +74,15 @@ export default class Professors extends Component{
                     newProfessor
                 });
 
-                this.contracts.TeacherRate.methods._submitRating.cacheSend(professor.id, Math.round(newRating)); // the parameters here are not working
+                //console.log(this.contracts.TeacherRate.methods._getTeacherRatings(0).call());
+                this.contracts.TeacherRate.methods._submitRating.cacheSend(professor.id, Math.round(newRating), {gas: 500000}); // the parameters here are not working
+
             }
         });
+    }
+
+    getHash = (id) => {
+        return this.contracts.TeacherRate.methods._getTeacherRatings.cacheCall(id);
     }
 
     render() {
