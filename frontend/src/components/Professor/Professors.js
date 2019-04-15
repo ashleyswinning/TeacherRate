@@ -71,7 +71,7 @@ export default class Professors extends Component{
                     newProfessor
                 });
 
-                this.contracts.TeacherRate.methods._submitRating.cacheSend(professor.id, professor.newRating); // the parameters here are not working
+                this.contracts.TeacherRate.methods._submitRating.cacheSend(professor.id, Math.round(newRating)); // the parameters here are not working
             }
         });
     }
