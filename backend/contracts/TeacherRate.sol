@@ -9,6 +9,7 @@ contract TeacherRate {
 		bytes32 f_name;
 		bytes32 l_name;
 		uint[] teacherRatings;
+		mapping (address => bool) public raters;
 		// string[] teacherReviews;
 	}
 
@@ -30,7 +31,8 @@ contract TeacherRate {
 			id: _id,
 			f_name: _fname,
 			l_name: _lname,
-			teacherRatings: new uint[](0)
+			teacherRatings: new uint[](0),
+			raters[msg.sender] = true;
 			// teacherReviews: new string[](0)
 			})) -1;
 	}
@@ -47,12 +49,17 @@ contract TeacherRate {
 
 	//', string memory _review' removed param
 	function _submitRating (uint _teacherID, uint _rating) public payable {
-		if (_rating > 5) { //rating must be between 1 and 5
+		if (_rating > 5) { //rating must be between 0 and 5
 			revert();
 		}
 		else {
-			teachers[_teacherID].teacherRatings.push(_rating) -1;
-			// teachers[_teacherID].teacherReviews.push(_review) -1;
+			if(teachers[_teacherID].raters[msg.sender] == true){
+				revert();
+			}
+			else {
+				teachers[_teacherID].teacherRatings.push(_rating) -1;
+				// teachers[_teacherID].teacherReviews.push(_review) -1;
+			}
 		}
 	}
 	
