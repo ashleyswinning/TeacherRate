@@ -10,7 +10,7 @@ export default class Professors extends Component{
     constructor(props, context){
         super(props);
         this.contracts = context.drizzle.contracts;
-        var state = context.drizzle.store.getState();
+        //var state = context.drizzle.store.getState();
         //console.log(context.drizzle.store.getState().contracts.TeacherRate._getTeacherRatings.valueOf());
 
         // initialized state that will hold static list of professors with a starting rating of 0
@@ -81,9 +81,9 @@ export default class Professors extends Component{
         });
     }
 
-    getHash = (id) => {
+    /*getHash = (id) => {
         return this.contracts.TeacherRate.methods._getTeacherRatings.cacheCall(id);
-    }
+    }*/
 
     render() {
         // allows visibility when debugging capturing information regarding props
