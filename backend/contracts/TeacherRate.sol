@@ -15,11 +15,7 @@ contract TeacherRate {
 	teacher[] teachers; //array of all teachers
 
 	constructor() public {
-		_createTeacher("Ron", "Swanson"); // 0
-		_createTeacher("Robin", "Williams"); // 1
-		_createTeacher("Reese", "Witherspoon"); // 2
-		_createTeacher("Dwight", "Schrute"); // 3
-		_createTeacher("Betty", "White"); // 4
+
 	}
 
 	//pushes a new instance of teacher struct to array of all teachers
