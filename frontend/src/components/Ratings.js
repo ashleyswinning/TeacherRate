@@ -120,19 +120,19 @@ export default class Ratings extends Component {
                     <DialogTitle style={{textAlign: 'center', fontFamily: 'Alegreya Sans SC'}}>Rate Professor {this.retrieveLastName()}!</DialogTitle>
                     <DialogContent style={{margin: 'auto'}}>
                         <DialogContentText style={centerText}>Engaging</DialogContentText>
-                        <ReactStars edit={true} count={5} size={22} color2={'#ffd700'} value={this.state.engaging} onChange={this.engagingChanged}/>
+                        <ReactStars edit={true} count={5} size={22} color2={'#ffd700'} half={false} value={this.state.engaging} onChange={this.engagingChanged}/>
 
                         <DialogContentText style={centerText}>Helpful</DialogContentText>
-                        <ReactStars edit={true} count={5} size={22} color2={'#ffd700'} value={this.state.helpful} onChange={this.helpfulChanged}/>
+                        <ReactStars edit={true} count={5} size={22} color2={'#ffd700'} half={false} value={this.state.helpful} onChange={this.helpfulChanged}/>
 
                         <DialogContentText style={centerText}>Creative</DialogContentText>
-                        <ReactStars edit={true} count={5} size={22} color2={'#ffd700'} value={this.state.creative} onChange={this.creativeChanged}/>
+                        <ReactStars edit={true} count={5} size={22} color2={'#ffd700'} half={false} value={this.state.creative} onChange={this.creativeChanged}/>
 
                         <DialogContentText style={centerText}>Knowledgeable</DialogContentText>
-                        <ReactStars edit={true} count={5} size={22} color2={'#ffd700'} value={this.state.knowledgeable} onChange={this.knowledgeableChanged}/>
+                        <ReactStars edit={true} count={5} size={22} color2={'#ffd700'} half={false} value={this.state.knowledgeable} onChange={this.knowledgeableChanged}/>
 
                         <DialogContentText style={centerText}>Organized</DialogContentText>
-                        <ReactStars edit={true} count={5} size={22} color2={'#ffd700'} value={this.state.organized} onChange={this.organizedChanged}/>
+                        <ReactStars edit={true} count={5} size={22} color2={'#ffd700'} half={false} value={this.state.organized} onChange={this.organizedChanged}/>
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={this.handleCancel} variant="contained"
