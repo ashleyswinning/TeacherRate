@@ -85,7 +85,6 @@ export default class Professors extends Component{
             ).then(data => {
                 if (professor.id === 2) {
                     professor.rating = parseInt(data);
-                    console.log(parseInt(data))
                     this.setState({
                         rating: parseInt(data)
                     })
@@ -97,7 +96,6 @@ export default class Professors extends Component{
             ).then(data => {
                 if (professor.id === 3) {
                     professor.rating = parseInt(data);
-                    console.log(parseInt(data))
                     this.setState({
                         rating: parseInt(data)
                     })
@@ -109,6 +107,7 @@ export default class Professors extends Component{
             ).then(data => {
                 if (professor.id === 4) {
                     professor.rating = parseInt(data);
+                    console.log(parseInt(data))
                     this.setState({
                         rating: parseInt(data)
                     })
@@ -119,8 +118,6 @@ export default class Professors extends Component{
 
     // function to be used by grandchild component that will pass a professor id along with a new rating to this component
     updateRating = (id, newRating) => {
-        console.log("Id: " + id + ", New Rating: " + newRating);
-
         // if professor is found by the id, their rating will be updated
         this.state.professors.map((professor) => {
             if(professor.id === id) {

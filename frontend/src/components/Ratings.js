@@ -63,7 +63,6 @@ export default class Ratings extends Component {
     handleSubmit = () => {
 
         let average = this.handleAverage(this.props.professor.rating);
-        //let finalAverage = 0;
         if (this.props.professor.votes == 0 && this.props.professor.rating != 0) {
             let finalAverage = (average + this.props.professor.rating) / (this.props.professor.votes + 2);
             this.props.updateRating(this.props.professor.id, finalAverage);

@@ -57,7 +57,7 @@ contract TeacherRate {
 	// returns the average of all ratings of teacher with given ID
 	function _getTeacherRatings(uint _teacherID) view public returns (uint) {
 		uint avg = 0;
-		if (teachers[_teacherID].teacherRatings.length > 1) {
+		if (teachers[_teacherID].teacherRatings.length >= 1) {
 			uint len = teachers[_teacherID].teacherRatings.length;
 			for(uint i = 0; i <  len; i++){
 				avg += teachers[_teacherID].teacherRatings[i];
