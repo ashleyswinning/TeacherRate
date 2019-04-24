@@ -56,6 +56,7 @@ export default class Professors extends Component{
             ]
         };
 
+        // get Teacher ratings here to initialize stars
         this.state.professors.map((professor) => {
             this.drizzle.methods._getTeacherRatings(0).call().then(data =>{
                 return data;
@@ -130,17 +131,13 @@ export default class Professors extends Component{
                 });
             }
         });
-
-        
     }
-
-
 
     render() {
         // allows visibility when debugging capturing information regarding props
         return (
             <div>
-                <ProfessorList professors={this.state.professors} updateRating={this.updateRating} initialUpdateStars={this.initialUpdateStars} />
+                <ProfessorList professors={this.state.professors} updateRating={this.updateRating} />
             </div>
         );
     }
