@@ -6,14 +6,11 @@ import web3 from 'web3';
 
 export default class Professors extends Component{
 
-
     constructor(props, context){
         super(props);
+        this.drizzle = this.props.drizzle.contracts.TeacherRate;
         this.contracts = context.drizzle.contracts;
-        //var state = context.drizzle.store.getState();
-        //console.log(context.drizzle.store.getState().contracts.TeacherRate._getTeacherRatings.valueOf());
 
-        // initialized state that will hold static list of professors with a starting rating of 0
         this.state = {
             professors: [
                 {
@@ -21,7 +18,7 @@ export default class Professors extends Component{
                     "name": "Ron Swanson",
                     "course": "HIST 1111 Survey of World History",
                     "imageUrl": "../images/ron_swanson.jpg",
-                    "rating": 0, // here you would call function to get rating from contract?
+                    "rating": 0,// here you would call function to get rating from contract?
                     "votes": 0
                 },
                 {
@@ -58,37 +55,86 @@ export default class Professors extends Component{
                 }
             ]
         };
+
+        // get Teacher ratings here to initialize stars
+        this.state.professors.map((professor) => {
+            this.drizzle.methods._getTeacherRatings(0).call().then(data =>{
+                return data;
+            }
+            ).then(data => {
+                if (professor.id === 0) {
+                    professor.rating = parseInt(data);
+                    this.setState({
+                        rating: parseInt(data)
+                    })
+                }
+            });
+            this.drizzle.methods._getTeacherRatings(1).call().then(data =>{
+                return data;
+            }
+            ).then(data => {
+                if (professor.id === 1) {
+                    professor.rating = parseInt(data);
+                    this.setState({
+                        rating: parseInt(data)
+                    })
+                }
+            });
+            this.drizzle.methods._getTeacherRatings(2).call().then(data =>{
+                return data;
+            }
+            ).then(data => {
+                if (professor.id === 2) {
+                    professor.rating = parseInt(data);
+                    this.setState({
+                        rating: parseInt(data)
+                    })
+                }
+            });
+            this.drizzle.methods._getTeacherRatings(3).call().then(data =>{
+                return data;
+            }
+            ).then(data => {
+                if (professor.id === 3) {
+                    professor.rating = parseInt(data);
+                    this.setState({
+                        rating: parseInt(data)
+                    })
+                }
+            });
+            this.drizzle.methods._getTeacherRatings(4).call().then(data =>{
+                return data;
+            }
+            ).then(data => {
+                if (professor.id === 4) {
+                    professor.rating = parseInt(data);
+                    console.log(parseInt(data))
+                    this.setState({
+                        rating: parseInt(data)
+                    })
+                }
+            });
+        });
     }
 
     // function to be used by grandchild component that will pass a professor id along with a new rating to this component
     updateRating = (id, newRating) => {
-        console.log("Id: " + id + ", New Rating: " + newRating);
-
         // if professor is found by the id, their rating will be updated
         this.state.professors.map((professor) => {
             if(professor.id === id) {
                 let newProfessor = Object.assign({}, this.state);
                 newProfessor.professors[id].rating = newRating;
                 newProfessor.professors[id].votes += 1;
+                this.drizzle.methods._submitRating.cacheSend(professor.id, Math.round(newRating), {gas: 500000});
                 this.setState({
                     newProfessor
                 });
-
-                //console.log(this.contracts.TeacherRate.methods._getTeacherRatings(0).call());
-                this.contracts.TeacherRate.methods._submitRating.cacheSend(professor.id, Math.round(newRating), {gas: 500000}); // the parameters here are not working
-
             }
         });
     }
 
-    /*getHash = (id) => {
-        return this.contracts.TeacherRate.methods._getTeacherRatings.cacheCall(id);
-    }*/
-
     render() {
         // allows visibility when debugging capturing information regarding props
-        //console.log(this.state);
-
         return (
             <div>
                 <ProfessorList professors={this.state.professors} updateRating={this.updateRating} />
