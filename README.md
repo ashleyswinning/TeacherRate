@@ -24,7 +24,8 @@ Cameron Smith, Austin Tyler, Quantonio Nunnally, Jacen Duran, Ashley Huynh
 * In another tab, `cd` into `backend` directory and do `truffle compile` then `truffle migrate --reset`
 > This deploys the contract onto the Ganache GUI.
 
-* Then, `cd` into `frontend` in another tab and run `npm install` and then `npm start`.
+* Then, `cd` into `frontend` in another tab and run `npm install` and then `npm start`.(If the `npm install` command fails, try `npm install -f`.
+> You may then get an error saying `____ is not a recognized command.` (typically, this may refer to packages like `react-scripts`). To overcome this error, manually install any additional needed packaged (ex: `react-scripts is not a recognized command` => run `npm install react-scripts`
 
 * Make sure MetaMask is installed in your browser (Chrome preferred)
 > If you do not have MetaMask, installation instructions are available here (https://blog.wetrust.io/how-to-install-and-use-metamask-7210720ca047?gi=e44b73bfc053).
